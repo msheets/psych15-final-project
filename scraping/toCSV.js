@@ -42,7 +42,7 @@ fs.readFile(inputFile, 'utf8', function(err, data) {
                 var d = new Date(week.date);
                 csv += (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
             
-                if (d.getMonth() < 3 || d.getMonth() >= 9) // october,november, december, january, febuary, march,
+                if (d.getMonth() < 4 || d.getMonth() >= 10) // november, december, january, febuary, march, april
                     csv += ",0";
                 else
                     csv += ",1"
