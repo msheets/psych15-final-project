@@ -70,4 +70,12 @@ Site
 
 The `site` folder contains a the code used in the website found [here](http://www.hcs.harvard.edu/~msheets/psych15/) that was built for the purpose of quickly and easily exploring the data.
 
+The site was built using the data above and the [d3 library](http://d3js.org/).
 
+The site allows you to manipulate several parameters in viewing the data. The first of these parameters is the data point being viewed. All data points have been pulled from the Echo Nest API and aggregated appropriately.
+
+Additionally, the site allows for smoothing. When `none` is selected, the average values for each day of the year are shown. If `weeks` is selected, the data is averaged by week and if `months` is selected, the data is averaged by month.
+
+The site allows you to select which dataset you are viewing (most streamed songs vs hot 100 songs).
+
+Finally it allows you to select the time frame within this dataset that you would like to view. The time frame must be at least one year in length. If more than one year is selected (as in the default state), the values for each day are averaged together. That is to say the value shown on January 23rd, is the average of the values on January 23rd for each year selected.
