@@ -432,6 +432,8 @@ d3.json("data/hot100-echonest.json", function(dataHot100) {
                     .on("click", (function(param) { return function() {
                         d3.event.preventDefault();
 
+                        d3.select("h1 .data-point").text(param);
+
                         dataPointControls.selectAll(".data-point-container a").classed("selected", false);
                         dataPointControls.select(".data-point-container." + param + " a").classed("selected", true);
 
