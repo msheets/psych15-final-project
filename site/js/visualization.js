@@ -484,38 +484,22 @@ d3.json("data/hot100-echonest.json", function(dataHot100) {
 
                 switch (val) {
                     case "none":
+                        d3.select("h1 .time-frame").text("day");
                         dataSmoothingAccessor = function(d) { return d.dates; }
                         lineVis.datum(dataSmoothingAccessor(data))
                             .attr("d", line);                        
                         break;
                     case "week":
+                        d3.select("h1 .time-frame").text("week");
                         dataSmoothingAccessor = function(d) { return d.weeks; }
                         lineVis.datum(dataSmoothingAccessor(data))
                             .attr("d", line);
                         break;
                     case "month":
+                        d3.select("h1 .time-frame").text("month");
                         dataSmoothingAccessor = function(d) { return d.months; }
                         lineVis.datum(dataSmoothingAccessor(data))
                             .attr("d", line);                        
-                        break;
-                }
-            });
-
-        controls.selectAll(".data-shown-container a")
-            .on("click", function() {
-                d3.event.preventDefault();
-
-                var val = d3.select(this).attr("data-val");
-
-                controls.selectAll(".data-shown-container a").classed("selected", false);
-                controls.select(".data-shown-container a[data-val=" + val + "]").classed("selected", true);
-                
-                switch (val) {
-                    case "averages":
-                        break;
-                    case "data-points":
-                        break;
-                    case "both":
                         break;
                 }
             });
