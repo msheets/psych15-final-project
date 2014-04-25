@@ -36,7 +36,7 @@ The results will show up in the appropriate files (`streaming-echonest.json` & `
 
 ### Aggregating to CSV ###
 
-`toCSV.js` in the `scraping` folder serves to aggregate and export the downloaded data to CSV format for use in excel. The resulting CSV contains both the individual songs from each week and the average data for each of those songs. Note that the appropriate `streaming-echonest.json` or `hot100-echonest.json` file must exist for the script to work properly.
+`toCSV.js` in the `scraping` folder serves to aggregate and export the downloaded data to CSV format for use in excel. The resulting CSV contains the individual songs from each week. Note that the appropriate `streaming-echonest.json` or `hot100-echonest.json` file must exist for the script to work properly.
 
 To use the script on streaming-echonest.json run:
 
@@ -46,8 +46,19 @@ To use the script on hot100-echonest.json run:
 
 	node toCSV.js hot100
 
-The results will show up in the appropriate files (`streaming-echonest.csv` & `hot100-echonest.csv` respectively) in the `data` folder of this repository.
+The results will show up in the appropriate files (`streaming.csv` & `hot100.csv` respectively) in the `data` folder of this repository.
 
+Additionally, `toCSVAverage.js` performs the same tasks but computes the average scores for each week with a uniform waiting (i.e. the song in position 6 on the chart has the same weighting as that in position 1).
+
+To use the script on streaming-echonest.json run:
+
+	node toCSVAverage.js
+
+To use the script on hot100-echonest.json run:
+
+	node toCSVAverage.js hot100
+
+The results will show up in the appropriate files (`streamingAverages.csv` & `hot100Averages.csv` respectively) in the `data` folder of this repository.	
 
 Data
 ----

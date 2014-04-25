@@ -1,11 +1,11 @@
 var fs = require('fs');
 
 var inputFile = '../data/streaming-echonest.json',
-    outputFile = '../data/streaming-echonest.csv';
+    outputFile = '../data/streaming.csv';
 
 if (process.argv[2] && process.argv[2] == 'hot100') {
     inputFile = '../data/hot100-echonest.json';
-    outputFile = '../data/hot100-echonest.csv';
+    outputFile = '../data/hot100.csv';
 }
 
 fs.readFile(inputFile, 'utf8', function(err, data) {
@@ -38,28 +38,23 @@ fs.readFile(inputFile, 'utf8', function(err, data) {
                 for (var dataPoint in weekAvgs) {
                     weekAvgs[dataPoint] += data[dataPoint];
                 }
+
+                var d = new Date(week.date);
+                csv += (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
+            
+                if (d.getMonth() < 3 || d.getMonth() >= 9) // october,november, december, january, febuary, march,
+                    csv += ",0";
+                else
+                    csv += ",1"
+
+                for (var dataPoint in weekAvgs)
+                    csv += "," + data[dataPoint];
+                csv += "\n";
+            }
+            else {
+                console.log("No echonest data for: " + listing.name + " by " + listing.artist);
             }
         });
-
-        // average
-        for (var dataPoint in weekAvgs) {
-            weekAvgs[dataPoint] = weekAvgs[dataPoint] / week.listings.length;
-        }
-
-        var d = new Date(week.date);
-        if (!d) console.log(week.date);
-        
-        csv += (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
-    
-        if (d.getMonth() < 3 || d.getMonth() >= 9) // october,november, december, january, febuary, march,
-            csv += ",0";
-        else
-            csv += ",1"
-
-        for (var dataPoint in weekAvgs)
-            csv += "," + weekAvgs[dataPoint];
-        
-        csv += "\n";
     });
   
 	fs.writeFile(outputFile, csv, function(err) {
