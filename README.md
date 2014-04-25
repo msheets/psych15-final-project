@@ -57,6 +57,6 @@ The `data` folder contains the pre-computed results of the procedures described 
 Site
 ----
 
-The `site` folder contains a the code used in the website found here (TODO: Add Link) that was built for the purpose of quickly and easily exploring the data.
+The `site` folder contains a the code used in the website found [here](http://www.hcs.harvard.edu/~msheets/psych15/) that was built for the purpose of quickly and easily exploring the data.
 
 

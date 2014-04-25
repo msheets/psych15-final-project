@@ -94,8 +94,8 @@ var detailSvg = d3.select("#detail-viz").append("svg")
 var detailG = detailSvg.append("g")
     .attr("transform", "translate("+detailMargin.left+","+detailMargin.top+")");
 
-d3.json("scraping/echonestHot100.json", function(dataHot100) {
-    d3.json("scraping/echonest.json", function(dataStreaming) {
+d3.json("data/hot100-echonest.json", function(dataHot100) {
+    d3.json("data/streaming-echonest.json", function(dataStreaming) {
 
         var processData = function(data) {
             var dataObject = {};
