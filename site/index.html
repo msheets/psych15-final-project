@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/d3.v3.min.js"></script>
+    <style type="text/css">
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            color: #333;            
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 2px;
+        }
+
+        .x.axis .tick text {
+            text-transform: lowercase;
+        }
+        .y.axis .tick text {
+            font-size: 14px;
+        }
+        .y.label {
+            font-size: 16px;
+        }
+
+        #viz {
+            width: 760px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        #controls {
+            display: inline-block;
+            text-align: left;
+        }
+        #controls td.header {
+            text-align: right;
+            padding-right: 20px;
+        }
+        #controls ul {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            margin: 8px;
+        }
+        #controls ul li {
+            display: inline-block;
+            margin: 3px;
+        }
+        #controls ul li a {
+            padding: 9px;
+            background-color: #EEE;
+            text-decoration: none;
+            color: #333;
+        }
+        #controls ul li a.selected {
+            background-color: #CCC;
+        }
+
+        #viz, #detail-viz {
+            display: inline-block;
+        }
+
+        #detail-viz rect {
+            fill: steelblue;
+        }
+
+        #time-interval-selector .axis text {
+          font: 11px sans-serif;
+        }
+
+        #time-interval-selector .axis path {
+          display: none;
+        }
+
+        #time-interval-selector .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        #time-interval-selector .grid-background {
+          fill: #ddd;
+        }
+
+        #time-interval-selector .grid line,
+        #time-interval-selector .grid path {
+          fill: none;
+          stroke: #fff;
+          shape-rendering: crispEdges;
+        }
+
+        #time-interval-selector .grid .minor.tick line {
+          stroke-opacity: .5;
+        }
+
+        #time-interval-selector .brush .extent {
+          stroke: #000;
+          fill-opacity: .125;
+          shape-rendering: crispEdges;
+        }
+
+        #detail-viz {
+            background: #EFEFEF;
+        }
+    </style>
+</head>
+<body>
+    <div id="viz"></div>
+    <div id="detail-viz"></div>
+    <div id="controls">
+        <table>
+            <tr>
+                <td class="header">data point</td>
+                <td class="selector"><ul id="data-point-selector"></ul></td>
+            </tr>
+            <tr>
+                <td class="header">data smoothing</td>
+                <td class="selector">
+                    <ul id="smoothing-selector">
+                        <li class="smoothing-container"><a href="#" class="selected" data-val="none">none</a></li>
+                        <li class="smoothing-container"><a href="#" data-val="week">week</a></li>
+                        <li class="smoothing-container"><a href="#" data-val="month">month</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="header">data set</td>
+                <td class="selector">
+                    <ul id="data-set-selector">
+                        <li class="data-set-container"><a href="#" class="selected" data-val="streaming">streaming</a></li>
+                        <li class="data-set-container"><a href="#" data-val="hot100">hot 100</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="header">time interval</td>
+                <td class="selector">
+                    <div id="time-interval-selector"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript" src="js/visualization.js"></script>
+</body>
+</html>
