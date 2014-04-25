@@ -13,7 +13,7 @@ fs.readFile(inputFile, 'utf8', function(err, data) {
 
     var weeks = JSON.parse(data);
 
-    var csv = "date,season,acousticness,danceability,duration,energy,key,liveness,loudness,mode,speechiness,tempo,time_signature,valence\n";
+    var csv = "date,season,ranking,acousticness,danceability,duration,energy,key,liveness,loudness,mode,speechiness,tempo,time_signature,valence\n";
     weeks.map(function(week) {
 
         var weekAvgs = {    
@@ -46,6 +46,8 @@ fs.readFile(inputFile, 'utf8', function(err, data) {
                     csv += ",0";
                 else
                     csv += ",1"
+
+                csv += "," + listing["position"];
 
                 for (var dataPoint in weekAvgs)
                     csv += "," + data[dataPoint];

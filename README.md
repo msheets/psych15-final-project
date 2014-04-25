@@ -58,7 +58,7 @@ To use the script on hot100-echonest.json run:
 
 	node toCSVAverage.js hot100
 
-The results will show up in the appropriate files (`streamingAverages.csv` & `hot100Averages.csv` respectively) in the `data` folder of this repository.	
+The results will show up in the appropriate files (`streaming-averages.csv` & `hot100-averages.csv` respectively) in the `data` folder of this repository.	
 
 Data
 ----
